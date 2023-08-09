@@ -1,4 +1,4 @@
-import 'react-native-gesture-handler';
+// import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -6,6 +6,8 @@ import OnboardingScreen from './screens/OnBoardingScreen';
 import BottomNavigator from './navigation/AppNavigator';
 import { useFonts } from "expo-font";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Login from './screens/AuthScreen/Login';
+import SignUp from './screens/AuthScreen/SignUp';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,22 +51,22 @@ const App = () => {
   }
 
   return (
-    isAppFirstLaunched != null && (
+   
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false,
         }}
          
         >
-          {isAppFirstLaunched && (
             <Stack.Screen
               name="OnboardingScreen"
               component={OnboardingScreen}
             />
-          )}
+              <Stack.Screen name="login" component={Login} />
+           <Stack.Screen name="signup" component={SignUp} />
           <Stack.Screen name="HomeScreen" component={BottomNavigator} />
         </Stack.Navigator>
       </NavigationContainer>
-    )
+    
   );
 };
 
