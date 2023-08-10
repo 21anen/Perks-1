@@ -286,7 +286,7 @@ const HomeScreen = () => {
             </Text>
           </View>
         </View>
-        <View style={{ paddingHorizontal: 15, position: "absolute", top: 230 }}>
+        <View style={{ paddingHorizontal: 15, position: "absolute", top: SCREEN_HEIGHT * 0.35 }}>
           <Text
             style={{
               fontFamily: "montserrat-bold",
@@ -297,7 +297,7 @@ const HomeScreen = () => {
             Redeem your Reward Points
           </Text>
         </View>
-        <View style={{ position: "absolute", top:270, paddingHorizontal:15 }}>
+        <View style={{ position: "absolute", top:SCREEN_HEIGHT * 0.4 , paddingHorizontal:15 }}>
           <FlatList
             ref={ref}
             onMomentumScrollEnd={updateCurrentSlideIndex}
