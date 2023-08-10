@@ -21,11 +21,11 @@ const slides = [
   },
   {
     id: "2",
-    title: "Achieve Your Goals",
+    title: "Organize, find, and enjoy your loyalty cards in a more modern and dynamic way",
   },
   {
     id: "3",
-    title: "Increase Your Value",
+    title: "Organize, find, and enjoy your loyalty cards in a more modern and dynamic way",
   },
 ];
 
