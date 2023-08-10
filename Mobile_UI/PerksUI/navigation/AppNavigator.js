@@ -43,7 +43,6 @@ function BottomNavigator() {
             <MaterialCommunityIcons name="account-circle"  style={{marginLeft:50, marginTop:-20}} color={color} size={42} />
           ),
           
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold" },
         }}
       />
       <Tab.Screen
@@ -60,7 +59,6 @@ function BottomNavigator() {
             />
           ),
 
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold", },
         }}
       />
       <Tab.Screen
@@ -76,7 +74,6 @@ function BottomNavigator() {
               size={42}
             />
           ),
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold" },
         }}
       />
     </Tab.Navigator>
