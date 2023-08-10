@@ -20,7 +20,9 @@ function BottomNavigator() {
           width: "100%",
           // marginLeft: 20,
           shadowColor:'white',
+          
         },
+        tabBarShowLabel:false,
         headerShown: false,
 
       }}
@@ -36,9 +38,9 @@ function BottomNavigator() {
         options={{
          
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="magnify" color={color} size={32} />
+            <MaterialCommunityIcons name="account-circle" color={color} size={42} />
           ),
-          tabBarLabel: "Explore",
+          
           tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold" },
         }}
       />
@@ -49,14 +51,13 @@ function BottomNavigator() {
           tabBarLabel: "WishList",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
-              name="heart-outline"
-              color={color}
-              size={32}
+              name="plus-circle"
+              color={Colors.secondary}
+              size={62}
             />
           ),
 
-          tabBarBadge: 3,
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold" },
+          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold",top:-30, position:'absolute'  },
         }}
       />
       <Tab.Screen
@@ -68,7 +69,7 @@ function BottomNavigator() {
             <MaterialCommunityIcons
               name="account-circle"
               color={color}
-              size={32}
+              size={42}
             />
           ),
           tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold" },
