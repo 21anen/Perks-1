@@ -19,7 +19,9 @@ function BottomNavigator() {
           paddingBottom: 20,
           width: "100%",
           // marginLeft: 20,
-          shadowColor:'white',
+          borderTopWidth:0,
+          elevation:0,
+          borderTopColor:'white'
           
         },
         tabBarShowLabel:false,
@@ -38,7 +40,7 @@ function BottomNavigator() {
         options={{
          
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account-circle" color={color} size={42} />
+            <MaterialCommunityIcons name="account-circle"  style={{marginLeft:50, marginTop:-20}} color={color} size={42} />
           ),
           
           tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold" },
@@ -53,11 +55,12 @@ function BottomNavigator() {
             <MaterialCommunityIcons
               name="plus-circle"
               color={Colors.secondary}
-              size={62}
+              style={{position: "absolute", top:-30,}}
+              size={82}
             />
           ),
 
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold",top:-30, position:'absolute'  },
+          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold", },
         }}
       />
       <Tab.Screen
@@ -67,8 +70,9 @@ function BottomNavigator() {
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
-              name="account-circle"
+              name="card-text"
               color={color}
+              style={{marginLeft:-50, marginTop:-20}}
               size={42}
             />
           ),
