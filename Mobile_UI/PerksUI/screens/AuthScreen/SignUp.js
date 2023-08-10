@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import Colors from "../../constants/Colors";
 import { Icon } from "@rneui/themed";
+import { SCREEN_HEIGHT } from "../../constants/UiData";
 
 const SignUp = ({ navigation }) => {
   const [userEmail, setUserEmail] = useState("");
@@ -95,8 +96,8 @@ const SignUp = ({ navigation }) => {
           style={{
             flexDirection: "row",
             justifyContent: "center",
-            marginTop: -250,
-            marginBottom: 100,
+            marginTop: -190,
+            marginBottom: 20,
           }}
         >
           <Icon
@@ -178,9 +179,9 @@ const styles = StyleSheet.create({
   },
   loginform: {
     position: "relative",
-    top: 200,
+    top: SCREEN_HEIGHT * 0.2,
     width: "100%",
-    height: "100%",
+    height: 716,
     backgroundColor: "white",
     borderTopRightRadius: 67,
     borderTopLeftRadius: 67,

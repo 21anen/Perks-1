@@ -88,12 +88,12 @@ const Login = ({ navigation }) => {
         </Text>
       </View>
       <View style={styles.loginform}>
-        <View style={{flexDirection:'row',justifyContent:'center', marginTop:-300, marginBottom:100}}>
+        <View style={{flexDirection:'row',justifyContent:'center', marginTop:-300, marginBottom:50}}>
     
               <Icon
         name='chevron-left'
         size={30}
-        style={{marginLeft:-23,marginTop:-45 }}
+        // style={{marginLeft:-23,marginTop:-45 }}
             onPress={() => navigation.navigate("OnboardingScreen")}
         />
           <Text  style={{
@@ -175,6 +175,8 @@ const styles = StyleSheet.create({
   inputText: {
     height: 50,
     color: "white",
+    fontFamily: "montserrat-regular",
+    fontSize: 15,
   },
   loginbtn: {
     flex: 1,

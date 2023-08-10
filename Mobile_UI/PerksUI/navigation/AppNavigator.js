@@ -20,13 +20,13 @@ function BottomNavigator() {
           width: "100%",
           // marginLeft: 20,
           shadowColor:'white',
-          backgroundColor:'white'
         },
         headerShown: false,
 
       }}
       sceneContainerStyle={{
-        marginBottom:82
+        marginBottom:82,
+        backgroundColor:'white'
       }}
       
     >
@@ -66,7 +66,7 @@ function BottomNavigator() {
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
-              name="account-circle-outline"
+              name="account-circle"
               color={color}
               size={32}
             />

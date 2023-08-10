@@ -41,7 +41,7 @@ const Slide = ({ item, currentSlideIndex }) => {
         }}
       >
         {/* Render indicator */}
-        {slides.map((_, index) => (
+        {/* {slides.map((_, index) => (
           <View
             key={index}
             style={[
@@ -52,7 +52,7 @@ const Slide = ({ item, currentSlideIndex }) => {
               },
             ]}
           />
-        ))}
+        ))} */}
       </View>
     </View>
   );
@@ -170,7 +170,7 @@ const OnboardingScreen = ({ navigation }) => {
         />
         </View>
       
-        <View style={{ flex: 1, height: "50%" }}>
+        <View style={{ flex: 1 }}>
           <FlatList
             ref={ref}
             onMomentumScrollEnd={updateCurrentSlideIndex}
@@ -178,13 +178,13 @@ const OnboardingScreen = ({ navigation }) => {
             showsHorizontalScrollIndicator={false}
             horizontal
             data={slides}
-            pagingEnabled
+            
             renderItem={({ item }) => (
               <Slide item={item} currentSlideIndex={currentSlideIndex} />
             )}
           />
         </View>
-        <View style={{ flex: 1, top: 350 , position:'absolute'}}>
+        <View style={{ flex: 1, top: height*0.35 , position:'absolute'}}>
           <Footer />
         </View>
       </View>
