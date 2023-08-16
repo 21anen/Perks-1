@@ -19,8 +19,12 @@ function BottomNavigator() {
           paddingBottom: 20,
           width: "100%",
           // marginLeft: 20,
-          shadowColor:'white',
+          borderTopWidth:0,
+          elevation:0,
+          borderTopColor:'white'
+          
         },
+        tabBarShowLabel:false,
         headerShown: false,
 
       }}
@@ -36,10 +40,9 @@ function BottomNavigator() {
         options={{
          
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="magnify" color={color} size={32} />
+            <MaterialCommunityIcons name="account-circle"  style={{marginLeft:50, marginTop:-20}} color={color} size={42} />
           ),
-          tabBarLabel: "Explore",
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold" },
+          
         }}
       />
       <Tab.Screen
@@ -49,14 +52,13 @@ function BottomNavigator() {
           tabBarLabel: "WishList",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
-              name="heart-outline"
-              color={color}
-              size={32}
+              name="plus-circle"
+              color={Colors.secondary}
+              style={{position: "absolute", top:-30,}}
+              size={82}
             />
           ),
 
-          tabBarBadge: 3,
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold" },
         }}
       />
       <Tab.Screen
@@ -66,12 +68,12 @@ function BottomNavigator() {
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
-              name="account-circle"
+              name="card-text"
               color={color}
-              size={32}
+              style={{marginLeft:-50, marginTop:-20}}
+              size={42}
             />
           ),
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "bold", fontFamily:"inter-bold" },
         }}
       />
     </Tab.Navigator>
