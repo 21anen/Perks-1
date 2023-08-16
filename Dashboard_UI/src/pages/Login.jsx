@@ -68,7 +68,7 @@ const LoginForm = () => {
     >
       <section className='d-flex flex-column'>
        
-        <article className='registration  p-8 rounded shadow-sm  w-full m-auto mt-3'>
+        <article className='registration  p-8 rounded-xl shadow-lg  w-full m-auto mt-3'>
           <div class='mb-3 pb-1border-b-2 text-center font-base text-gray-700'>
             <div className='flex justify-center '>
               <h4
@@ -76,7 +76,7 @@ const LoginForm = () => {
                 as='h4'
                 variant='h4'
               >
-                AIdREACH
+                AIDREACH
               </h4>
               {/* <Img
                 src='images/img_mainlogo_black_901.svg'
@@ -198,7 +198,7 @@ const LoginForm = () => {
                 href='/'
                 className='text-blueGray-500 hover:text-blueGray-300 text-sm font-semibold py-1'
               >
-                AIdREACH
+                AIDREACH
               </a>
             </div>
           </form>
