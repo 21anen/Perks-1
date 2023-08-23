@@ -1,0 +1,86 @@
+#I do not have any push access and after considering different options I concluded that the best way would be 
+#a new file with comments for our current backend team. Whoever has access (karim or Edgar) can make the necessary changes.
+#I have made the following suggested changes but have not been able to sync them. Here are the changes. 
+
+# models.py
+from django.db import models
+
+class Vendor(models.Model):
+    # ... (existing fields)
+
+class User(models.Model):
+    # ... (existing fields)
+    points = models.IntegerField(default=0)  # New field for user points
+
+class Transaction(models.Model):
+    # ... (existing fields)
+    points = models.IntegerField()  # Points collected from QR code
+
+
+# views.py
+from django.shortcuts import render
+# ... (import statements)
+
+@api_view(["POST"])
+def update_points(request, format=None):
+    try:
+        business_name = request.data["business_name"]
+        amount = request.data["amount"]
+        points = request.data["points"]
+        user_phone_number = request.user.phoneNumber  # Assuming user is authenticated
+
+        vendor = Vendor.objects.get(businessName=business_name)
+        user = User.objects.get(phoneNumber=user_phone_number)
+
+        # Update user's points
+        user.points += points
+        user.save()
+
+        # Create a new transaction record
+        Transaction.objects.create(user=user, amount=amount, points=points)
+
+        return Response({"message": "Points updated successfully."})
+    except Vendor.DoesNotExist:
+        return Response({"message": "Vendor not found."}, status=400)
+    except User.DoesNotExist:
+        return Response({"message": "User not found."}, status=400)
+    except Exception as e:
+        return Response({"message": str(e)}, status=500)
+
+# Add this view function to update points from scanned QR code
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def scan_qr_code_and_update_points(request):
+    qr_code_data = request.data.get("qr_code_data")
+
+    business_id = qr_code_data.get("business_id")
+    amount = qr_code_data.get("amount")
+    points = qr_code_data.get("points")
+
+    user = request.user
+    user.points += points
+    user.save()
+
+    transaction = Transaction.objects.create(user=user, amount=amount)
+
+    return Response(
+        {
+            "message": f"Points updated for business: {business_id}. New total points: {user.points}"
+        }
+    )
+
+
+# urls.py
+from django.urls import path, include, re_path
+# ... (import statements)
+
+urlpatterns = [
+    # ... (existing patterns)
+
+    # Add this new URL pattern for updating points from QR code
+    path("scan-qr-code/", scan_qr_code_and_update_points, name="scan_qr_code"),
+    path("update-points/", update_points, name="update_points"),
+]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
+
