@@ -2,9 +2,32 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
+from django.shortcuts import get_list_or_404
 from rest_framework import status
 from .models import *
 from .serializers import *
+
+@api_view(['POST'])
+def login(request, format=None):
+    vendor = get_list_or_404(Vendor, businessName=request.data['businessName'])
+    if not vendor.check_password(request.data['password']):
+        return Response({"Detail": "not found!."}, status=status.HTTP_404_NOT_FOUND)
+    token, created  = Token.objects.get_or_create(vendor=vendor)
+    serializedVendor = VendorSerializer(instance=vendor)
+    return Response({"token": token.key, "vendor":serializedVendor.data})
+
+@api_view(['POST'])
+def signup(request, format=None):
+    serializedVendor = VendorSerializer(data=request.data)
+    if serializedVendor.is_valid():
+        serializedVendor.save()
+        vendor = Vendor.objects.get(businessName=request.data['businessName'])
+        vendor.set_password(request.data['password'])
+        vendor.save()
+        token = Token.objects.create(vendor=vendor)
+        return Response({"token": token.key, "vendor":serializedVendor.data})
+    return Response(serializedVendor.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'POST'])
 def vendor_list(request, format=None):

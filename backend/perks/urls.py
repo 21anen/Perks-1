@@ -1,10 +1,8 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework.urlpatterns import format_suffix_patterns
 from .views import *
 
 urlpatterns = [
-    path("", include('rest_framework.urls')),
-
     path("vendors/", vendor_list, name="vendors"),
     path("vendors/<int:id>/", vendor_details, name="vendor_details"),
      

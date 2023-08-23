@@ -1,7 +1,7 @@
 from django.db import models
 
 class Vendor(models.Model):
-    businessName = models.CharField(max_length=200, verbose_name="Business name")
+    businessName = models.CharField(max_length=200, verbose_name="Business name", unique=True)
     locationAddress = models.CharField(max_length=200, verbose_name="Location address")
     emailAddress = models.CharField(max_length=100, verbose_name="Email")
     phoneNumber = models.CharField(max_length=30, unique=True, verbose_name="Phone number")

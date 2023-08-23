@@ -8,4 +8,6 @@ urlpatterns = [
     path('healthcheck/', lambda r: HttpResponse("Up and running ...", status=200)),
 
     path("perks/v1/data/", include('perks.urls')),
+
+    path("perks/v1/auth/", include('perks.authurls')),
 ]
